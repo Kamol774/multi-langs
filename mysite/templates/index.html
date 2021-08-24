@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% translate "HEAD_TITLE" %}</title>
+</head>
+<body>
+<ul>
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+    {% for lang in languages %}
+        <li><a href="/{{ lang.code }}/">{{ lang.name_local }}</a></li>
+    {% endfor %}
+</ul>
+<h1>{% translate "WELCOME_TEXT" %}</h1>
+<h1>{{ LANGUAGE_CODE }}</h1>
+
+</body>
+</html>
